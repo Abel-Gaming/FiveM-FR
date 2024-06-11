@@ -26,7 +26,7 @@ lib.registerRadial({
                 description = 'You are now 10-8',
                 type = 'success'
             })
-            Status = '10-8'
+            Status = '~g~10-8'
         end
       },
       {
@@ -37,7 +37,7 @@ lib.registerRadial({
                 description = 'You are now 10-7',
                 type = 'warning'
             })
-            Status = '10-7'
+            Status = '~r~10-7'
         end
       },
       {
@@ -48,7 +48,7 @@ lib.registerRadial({
                 description = 'You are now 10-6',
                 type = 'inform'
             })
-            Status = '10-6'
+            Status = '~y~10-6'
         end
       },
       {
@@ -59,7 +59,7 @@ lib.registerRadial({
                 description = 'You are now 10-23',
                 type = 'inform'
             })
-            Status = '10-23'
+            Status = '~o~10-23'
         end
       },
       {
@@ -70,7 +70,7 @@ lib.registerRadial({
                 description = 'You are now 10-97',
                 type = 'inform'
             })
-            Status = '10-97'
+            Status = '~o~10-97'
         end
       },
     }

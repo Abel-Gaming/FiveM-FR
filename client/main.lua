@@ -1,7 +1,23 @@
-Status = '10-7'
+Status = '~r~10-7'
 
 ----- Script Loaded -----
 print('Loaded FiveMFR by Abel Gaming')
+
+----- Draw Text -----
+Citizen.CreateThread(function()
+  while not NetworkIsSessionStarted() do
+		Wait(500)
+	end
+
+  while true do
+    Citizen.Wait(1)
+    SetTextFont(0)
+    SetTextScale(0.25, 0.25)
+    SetTextEntry("STRING")
+    AddTextComponentString('Current Status: ' .. Status) -- Main Text string
+    DrawText(0.92, 0.025)
+  end
+end)
 
 ----- Stations -----
 for k,v in pairs(Config.Stations) do
@@ -24,6 +40,7 @@ for k,v in pairs(Config.Stations) do
           end
        
           if IsControlJustPressed(0, 51) then
+            TriggerEvent('FiveMFR:ToggleDuty')
             lib.notify({
               description = "You are now on duty!"
             })
