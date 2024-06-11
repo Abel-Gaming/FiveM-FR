@@ -1,4 +1,5 @@
 Status = '~r~10-7'
+OnDuty = false
 
 ----- Script Loaded -----
 print('Loaded FiveMFR by Abel Gaming')
@@ -41,9 +42,6 @@ for k,v in pairs(Config.Stations) do
        
           if IsControlJustPressed(0, 51) then
             TriggerEvent('FiveMFR:ToggleDuty')
-            lib.notify({
-              description = "You are now on duty!"
-            })
           end
         else
           if lib.isTextUIOpen() then
