@@ -1,5 +1,7 @@
 Config = {}
 
+Config.UseRadialMenu = true -- Original development was intened for use with radial menu. The reason for this is because you cannot move while in the menu
+
 -- COMMANDS SETTINGS --
 Config.Stations = {
     {

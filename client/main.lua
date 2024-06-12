@@ -1,5 +1,12 @@
-Status = '~r~10-7'
+Status = '~r~Off Duty'
+
 OnDuty = false
+isPedBeingGrabbed = false
+isPedKneeling = false
+
+StoppedPed = nil
+ArrestedPed = nil
+GrabbedPed = nil
 
 ----- Script Loaded -----
 print('Loaded FiveMFR by Abel Gaming')

@@ -13,6 +13,9 @@ AddEventHandler('FiveMFR:ToggleDuty', function()
     else
         print('Now On Duty')
 
+        -- Set status to 10-6 [BUSY]
+        Status = '~y~10-6'
+
         -- Show Notification
         lib.notify({
             description = "You are now on duty!"

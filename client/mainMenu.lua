@@ -1,5 +1,6 @@
------ REGISTER RADIAL MENU -----
-lib.registerRadial({
+----- REGISTER RADIAL MENUS -----
+lib.registerRadial(
+  {
     id = 'fivemfr_police_menu',
     items = {
       {
@@ -11,11 +12,17 @@ lib.registerRadial({
         onSelect = function()
             TriggerEvent('FiveMFR:ToggleDuty')
         end
-      }
+      },
+      {
+        label = 'Ped Options',
+        menu = 'fivemfr_police_menu_ped'
+      },
     }
-})
+  }
+)
 
-lib.registerRadial({
+lib.registerRadial(
+  {
     id = 'fivemfr_police_menu_status',
     items = {
       {
@@ -74,18 +81,142 @@ lib.registerRadial({
         end
       },
     }
+  }
+)
+
+lib.registerRadial(
+  {
+    id = 'fivemfr_police_menu_ped',
+    items = {
+      {
+        label = 'Stop Ped',
+        onSelect = function()
+          StopPed()
+        end
+      },
+      {
+        label = 'Release Ped',
+        onSelect = function()
+          ReleasePed()
+        end
+      },
+      {
+        label = 'Arrest Ped',
+        onSelect = function()
+          ArrestPed()
+        end
+      },
+      {
+        label = 'Grab Ped',
+        onSelect = function()
+          GrabPed()
+        end
+      },
+      {
+        label = 'Kneel Ped',
+        onSelect = function()
+          KneelPed()
+        end
+      }
+    }
+  }
+)
+
+----- CREATE CONTEXT MENU INSTEAD OF RADIAL -----
+lib.registerContext({
+  id = 'fivemr_main_menu',
+  title = 'FiveM:FR Main Menu',
+  options = {
+    {
+      title = 'Toggle Duty',
+      onSelect = function()
+        TriggerEvent('FiveMFR:ToggleDuty')
+      end
+    },
+    {
+      title = 'Status Menu',
+      menu = 'fivemfr_status_menu',
+      arrow = false
+    },
+    {
+      title = 'Ped Menu',
+      menu = 'fivemfr_ped_menu',
+      arrow = false
+    },
+  }
+})
+
+lib.registerContext({
+  id = 'fivemfr_status_menu',
+  title = 'FiveM:FR Status Menu',
+  options = {
+    {
+      title = '10-8',
+      onSelect = function()
+        lib.notify({
+          title = 'Status Update',
+          description = 'You are now 10-8',
+          type = 'success'
+        })
+        Status = '~g~10-8'
+      end
+    }
+  }
+})
+
+lib.registerContext({
+  id = 'fivemfr_ped_menu',
+  title = 'FiveM:FR Ped Menu',
+  options = {
+    {
+      title = 'Stop Ped',
+      onSelect = function()
+        StopPed()
+      end
+    },
+    {
+      title = 'Release Ped',
+      onSelect = function()
+        ReleasePed()
+      end
+    },
+    {
+      title = 'Arrest Ped',
+      onSelect = function()
+        ArrestPed()
+      end
+    },
+    {
+      title = 'Grab Ped',
+      onSelect = function()
+        GrabPed()
+      end
+    },
+    {
+      title = 'Kneel Ped',
+      onSelect = function()
+        KneelPed()
+      end
+    }
+  }
 })
 
 ----- ADD FIVEMFR TO RADIAL MENU -----
-lib.addRadialItem({
+if Config.UseRadialMenu then
+  lib.addRadialItem(
     {
-      id = 'fivemfr_police',
-      label = 'FiveMFR',
-      icon = 'shield-halved',
-      menu = 'fivemfr_police_menu'
+      {
+        id = 'fivemfr_police',
+        label = 'FiveMFR',
+        icon = 'shield-halved',
+        menu = 'fivemfr_police_menu'
+      }
     }
-})
- 
-RegisterCommand('fivemfr:mainmenu', function()
-    lib.showMenu('main_menu')
-end)
+  )
+end
+
+if not Config.UseRadialMenu then
+  RegisterCommand('fivemfr:mainmenu', function()
+    lib.showContext('fivemr_main_menu')
+  end)
+end

@@ -15,7 +15,8 @@ client_scripts {
 	'client/main.lua',
 	'client/mainMenu.lua',
 	'client/alerts.lua',
-	'client/events.lua'
+	'client/events.lua',
+	'client/functions.lua'
 }
 
 shared_script '@ox_lib/init.lua'
