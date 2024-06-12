@@ -8,3 +8,9 @@ function PerformTrafficStop()
         FreezeEntityPosition(targetVeh, true)
     end
 end
+
+function GetVehicleInDirection( coordFrom, coordTo )
+    local rayHandle = CastRayPointToPoint( coordFrom.x, coordFrom.y, coordFrom.z, coordTo.x, coordTo.y, coordTo.z, 10, player, 0 )
+    local _, _, _, _, targetVeh = GetRaycastResult( rayHandle )
+    return targetVeh
+end
