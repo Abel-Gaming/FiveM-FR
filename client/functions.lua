@@ -110,7 +110,6 @@ function KneelPed()
                   Citizen.Wait(2000)
                   TaskPlayAnim(ArrestedPed, "random@arrests", "kneeling_arrest_get_up", 8.0, 1.0, -1, 128, 0, 0, 0, 0 )
                   Citizen.Wait(2000)
-                  TaskStandStill(ArrestedPed, -1)
                   TaskPlayAnim(ArrestedPed, "mp_arresting", "idle", 8.0, -8, -1, 49, 0, 0, 0, 0)
                   isPedKneeling = false
             end
@@ -162,17 +161,6 @@ function BookPed()
             ArrestedPed = nil
       else
             lib.notify({title = 'Error', description = 'No ped arrested' , type = 'error'})
-      end
-end
-
-function PerformTrafficStop()
-      local player = PlayerPedId()
-	local playerVeh = GetVehiclePedIsIn(player, false)
-      if GetVehicleClass(playerVeh) == 18 then
-            local pvPos = GetEntityCoords(playerVeh)
-		local inFrontOfPlayerVeh = GetOffsetFromEntityInWorldCoords(playerVeh, 0.0, distanceToCheck, 0.0 )
-		local targetVeh = GetVehicleInDirection(pvPos, inFrontOfPlayerVeh)
-            FreezeEntityPosition(targetVeh, true)
       end
 end
 
