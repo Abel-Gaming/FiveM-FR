@@ -117,7 +117,13 @@ lib.registerRadial(
         onSelect = function()
           KneelPed()
         end
-      }
+      },
+      {
+        label = 'Check ID',
+        onSelect = function()
+          CheckPedID()
+        end
+      },
     }
   }
 )
@@ -196,6 +202,12 @@ lib.registerContext({
       title = 'Kneel Ped',
       onSelect = function()
         KneelPed()
+      end
+    },
+    {
+      title = 'Check ID',
+      onSelect = function()
+        CheckPedID()
       end
     }
   }

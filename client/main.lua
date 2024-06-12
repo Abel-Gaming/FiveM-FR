@@ -1,4 +1,7 @@
 Status = '~r~Off Duty'
+StoppedPedGender = 'NA'
+StoppedPedName = 'NA'
+ArrestPedName = 'NA'
 
 OnDuty = false
 isPedBeingGrabbed = false
