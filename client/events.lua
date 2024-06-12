@@ -2,24 +2,11 @@ RegisterNetEvent('FiveMFR:ToggleDuty')
 AddEventHandler('FiveMFR:ToggleDuty', function()
     if OnDuty then
         print('Now Off Duty')
-
-        -- Show Notification
-        lib.notify({
-            description = "You are now off duty!"
-        })
-
-        -- Set status to 10-7
+        lib.notify({title = "You are now off duty!"})
         Status = '~r~10-7'
     else
-        print('Now On Duty')
-
-        -- Set status to 10-6 [BUSY]
-        Status = '~y~10-6'
-
-        -- Show Notification
-        lib.notify({
-            description = "You are now on duty!"
-        })
+        print('Now On Duty')Status = '~y~10-6'
+        lib.notify({title = "You are now on duty!"})
     end
     OnDuty = not OnDuty
 end)
